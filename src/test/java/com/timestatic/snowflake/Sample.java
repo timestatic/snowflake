@@ -1,9 +1,9 @@
-# snowflake
-snowflake, simple and effective handle clock moved backwards.
+package com.timestatic.snowflake;
 
----
-Example:
-```java
+/**
+ * @Author: timestatic
+ * @Date: 2019/11/5 20:39
+ */
 public class Sample {
 
     public static void main(String[] args) {
@@ -12,4 +12,3 @@ public class Sample {
         System.out.println(SnowFlakeWorker.getInstance().nextId());
     }
 }
-```

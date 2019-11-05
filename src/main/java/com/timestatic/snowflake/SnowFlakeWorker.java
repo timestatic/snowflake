@@ -6,7 +6,7 @@ package com.timestatic.snowflake;
  */
 public class SnowFlakeWorker {
 
-    private static SnowFlakeWorker snowFlakeWorkerInstance;
+    private volatile static SnowFlakeWorker snowFlakeWorkerInstance;
 
     // 1位标识部分    -      41位时间戳部分        -         10位节点部分     12位序列号部分
     /** 0 - 0000000000 0000000000 0000000000 0000000000 0 - 00000 - 00000 - 000000000000 */
@@ -53,8 +53,9 @@ public class SnowFlakeWorker {
     }
 
 
-    protected synchronized static void initSnowFlakeWorker(long workId) {
+    protected synchronized static SnowFlakeWorker initSnowFlakeWorker(long workId) {
         snowFlakeWorkerInstance = new SnowFlakeWorker(workId);
+        return snowFlakeWorkerInstance;
     }
 
     public static SnowFlakeWorker getInstance() {

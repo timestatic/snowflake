@@ -65,7 +65,6 @@ public class SnowFlakeWorkerTest {
         }
         countDownLatch.await();
         Assert.assertEquals(count, resultSet.size());
-        ;
     }
 
 
